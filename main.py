@@ -11,7 +11,7 @@ class Passenger:
         self.fare = fare
 
 
-holder = pd.read_csv('C:/Users/Kumayl/Desktop/titanic/train.csv')
+holder = pd.read_csv('train.csv')
 
 df = holder[["PassengerId", "Survived", "Pclass", "Sex", "Fare"]]
 df.loc[df['Sex'] == 'female', 'Sex'] = 2
