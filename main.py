@@ -21,3 +21,4 @@ srv.to_csv('survivors.csv')
 
 # love from mac
 # love from pc
+# love from browser
