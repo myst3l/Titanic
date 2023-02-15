@@ -18,5 +18,6 @@ print(ded)
 srv.to_csv('survivors.csv')
 
 #myst3l
-#
+
 # love from mac
+# love from pc
