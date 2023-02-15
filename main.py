@@ -1,15 +1,6 @@
 import pandas as pd
 
 
-class Passenger:
-    def __init__(self, pid, survived, social, sex, age, fare):
-        self.pid = pid
-        self.survived = survived
-        self.social = social
-        self.sex = sex
-        self.age = age
-        self.fare = fare
-
 
 holder = pd.read_csv('train.csv')
 
