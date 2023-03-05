@@ -86,7 +86,7 @@ sex_mean = df.groupby('Sex').mean(numeric_only=True)['Survived']
 # df['count'] = 0
 # print(df.groupby(['Survived', 'Sex']).count()['count'])
 #
-#
+
 # print(df.groupby('Sex').mean(numeric_only=True)['Survived'])
 
 print(sex_mean.describe)
