@@ -16,7 +16,7 @@ def p():
 def sex_check():
     df.loc[df['Sex'] == 1,  'ratio'] = df.ratio*0.8
     df.loc[df['Sex'] == 2,  'ratio'] = df.ratio*1.2
-
+def p():
 
 # df = holder[["PassengerId", "Survived", "Age", "Pclass", "Sex", "Fare"]]
 # df.loc[df['Sex'] == 'female', 'Sex'] = "1"
