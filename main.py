@@ -16,6 +16,10 @@ def survival_check():
     sib_check()
     df['Ratio'] = (df['Class S']*1)*(df['Sib S']*1)*(df['Sex S']*1)
 
+    correctness_check()
+
+
+def correctness_check():
     df.loc[((df['Survived'] == 1) & (df['Ratio'] >= 1)), 'Alive Correct'] = 1
     df.loc[((df['Survived'] == 0) & (df['Ratio'] <= 1)), 'Dead Correct'] = 1
     alive_c = sum(df['Alive Correct'])
@@ -94,7 +98,7 @@ class_mean = df.groupby('Pclass').mean(numeric_only=True)['Survived']
 sex_mean = df.groupby('Sex').mean(numeric_only=True)['Survived']
 age_mean = df.groupby('Age').mean(numeric_only=True)['Survived']
 sib_mean = df.groupby('SibSp').mean(numeric_only=True)['Survived']
-#
+
 
 # df['count'] = 0
 # print(df.groupby(['Survived', 'Sex']).count()['count'])
