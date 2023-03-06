@@ -14,9 +14,9 @@ def survival_check():
     sex_check()
     class_check()
     sib_check()
-    df['Ratio'] = (df['Class S']*1)*(df['Sib S']*1)*(df['Sex S']*1)
-
-    correctness_check()
+    parch_check()
+    df['Ratio'] = (df['Class S']*1)*(df['Sib S']*1)*(df['Sex S']*1)*(df['Parch S']*1)
+    # df['Ratio'] = (df['Class S'] + df['Sib S'] + df['Sex S'])/3
 
 
 def correctness_check():
@@ -32,22 +32,32 @@ def correctness_check():
 def class_check():
     for x in range(1, 4):
         df.loc[df['Pclass'] == x, 'Class S'] = class_mean[x] / 0.5
-    # df.loc[df['Pclass'] == 1, 'Class S'] = class_mean.iloc[1-1]/0.5
-    # df.loc[df['Pclass'] == 2, 'Class S'] = class_mean.iloc[2-1]/0.5
-    # df.loc[df['Pclass'] == 3, 'Class S'] = class_mean.iloc[3-1]/0.5
+    # df.loc[df['Pclass'] == 1, 'Class S'] = class_mean[1]/0.5
+    # df.loc[df['Pclass'] == 2, 'Class S'] = class_mean[2]/0.29
+    # df.loc[df['Pclass'] == 3, 'Class S'] = class_mean[3]/0.29
 
 
 def sib_check():
     for x in range(6):
         df.loc[df['SibSp'] == x, 'Sib S'] = sib_mean[x] / 0.5
-
-    df.loc[df['SibSp'] == 8, 'Sib S'] = sib_mean[8] / 0.5
+    # df.loc[df['SibSp'] == 0, 'Sib S'] = sib_mean[0] / 0.49
+    # df.loc[df['SibSp'] == 1, 'Sib S'] = sib_mean[1] / 0.4
+    # df.loc[df['SibSp'] == 2, 'Sib S'] = sib_mean[2] / 0.4
+    # df.loc[df['SibSp'] == 3, 'Sib S'] = sib_mean[3] / 0.4
+    # df.loc[df['SibSp'] == 4, 'Sib S'] = sib_mean[4] / 0.3
+    # df.loc[df['SibSp'] == 5, 'Sib S'] = sib_mean[5] / 0.5
+    # df.loc[df['SibSp'] == 8, 'Sib S'] = sib_mean[8] / 0.5
 
 
 def sex_check():
+    # df['Sex S'] = sex_mean[[df['Sex']]]
     df.loc[df['Sex'] == 'male', 'Sex S'] = sex_mean['male'] / 0.5
     df.loc[df['Sex'] == 'female', 'Sex S'] = sex_mean['female'] / 0.5
-#
+
+
+def parch_check():
+    for x in range(7):
+        df.loc[df['Parch'] == x, 'Parch S'] = parch_mean[x] / 0.5
 #
 # def age_check():
 #     df.loc[df['Age'] > 28,  'Ratio'] = df.Ratio*0.8
@@ -98,20 +108,20 @@ class_mean = df.groupby('Pclass').mean(numeric_only=True)['Survived']
 sex_mean = df.groupby('Sex').mean(numeric_only=True)['Survived']
 age_mean = df.groupby('Age').mean(numeric_only=True)['Survived']
 sib_mean = df.groupby('SibSp').mean(numeric_only=True)['Survived']
+parch_mean = df.groupby('Parch').mean(numeric_only=True)['Survived']
 
 
 # df['count'] = 0
-# print(df.groupby(['Survived', 'Sex']).count()['count'])
+# print(df.groupby(['Survived', 'Fare']).count()['count'])
 #
 #
-# print(df.groupby('Sex').mean(numeric_only=True)['Survived'])
+# print(df.groupby('Fare').mean(numeric_only=True)['Survived'])
 
-# print(sex_mean.describe)
-
+# print(df.groupby('Survived').describe())
 # print(class_mean)
 # print(sib_mean[8])
 
 survival_check()
+correctness_check()
 
-
-
+# print(df)
