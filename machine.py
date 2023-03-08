@@ -49,3 +49,11 @@ df = pd.read_csv('train.csv')
 # print(df['Embarked'].value_counts(dropna=False))
 # print(df[['Embarked', 'Survived']].groupby('Embarked', as_index=False).mean().sort_values(by='Survived', ascending=False))
 
+# print(df['SibSp'].value_counts(dropna=False))
+# print(df[['SibSp', 'Survived']].groupby('SibSp', as_index=False).mean().sort_values(by='Survived', ascending=False))
+
+# print(df['Parch'].value_counts(dropna=False))
+# print(df[['Parch', 'Survived']].groupby('Parch', as_index=False).mean().sort_values(by='Survived', ascending=False))
+
+# print(df['Fare'].value_counts(dropna=False))
+# print(df[['Fare', 'Survived']].groupby('Fare', as_index=False).mean().sort_values(by='Survived', ascending=False))
