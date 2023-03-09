@@ -127,18 +127,18 @@ df.drop('PassengerId', axis=1, inplace=True)
 df['Survived'] = df['Survived'].astype('int')
 # print(df.head())
 
-test = test.drop('Survived', axis = 1)
+test = test.drop('Survived', axis=1)
 # print(test.head())
 
 # MODELLING SOME WEIRD STUFF !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-X_train = df.drop('Survived', axis = 1)
+X_train = df.drop('Survived', axis=1)
 Y_train = df['Survived']
-X_test = test.drop('PassengerId', axis = 1).copy()
+X_test = test.drop('PassengerId', axis=1).copy()
 print("X_train shape: ", X_train.shape)
 print("Y_train shape: ", Y_train.shape)
 print("X_test shape: ", X_test.shape)
 
-knn = KNeighborsClassifier(n_neighbors = 5)
+knn = KNeighborsClassifier(n_neighbors=5)
 knn.fit(X_train, Y_train)
 Y_pred = knn.predict(X_test)
 acc_knn = round(knn.score(X_train, Y_train) * 100, 2)
